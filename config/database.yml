@@ -10,6 +10,9 @@ development:
   username: postgres
   password: postgres
   pool: 5
+  host: localhost
+  port: 5432
+  
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,8 +25,11 @@ test:
     password: postgres
     pool: 5
 
-# production:
-#   adapter: sqlite3
-#   database: db/production.sqlite3
-#   pool: 5
-#   timeout: 5000
+
+production:
+    adapter: postgresql
+    encoding: unicode
+    database: coolendar_dev
+    pool: 5
+    username: coolendar
+    
