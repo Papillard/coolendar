@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @authentication.user_id %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @authentication.provider %>
+</p>
+
+<p>
+  <b>Uid:</b>
+  <%= @authentication.uid %>
+</p>
+
+<p>
+  <b>Token:</b>
+  <%= @authentication.token %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%= @authentication.user_name %>
+</p>
+
+<p>
+  <b>Picture url:</b>
+  <%= @authentication.picture_url %>
+</p>
+
+<p>
+  <b>Refresh token:</b>
+  <%= @authentication.refresh_token %>
+</p>
+
+<p>
+  <b>Token expires time:</b>
+  <%= @authentication.token_expires_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_authentication_path(@authentication) %> |
+<%= link_to 'Back', authentications_path %>

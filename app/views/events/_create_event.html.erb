@@ -1,0 +1,82 @@
+<% event = @event_to_update || @event %>
+
+<%= form_for(event, :html => { :class => "form-horizontal"}, remote: true) do |f| %>
+	<div id='errors'>
+		<%= render partial: 'errors' %>
+	</div>
+		
+	<div class="control-group">
+		<label class="control-label"><strong>W</strong>hat?</label>
+		<div class="controls">
+			<%= f.text_area( :description, rows: 3, placeholder: "Good time!" ) %>
+	   	</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label"><strong>W</strong>here?</label>
+		<div class="controls">
+			<%= f.text_field :location, placeholder: "Anywhere!" %>
+		</div>
+	</div>
+	<div class="control-group">
+	    <label class="control-label"><strong>W</strong>hen?</label>
+	    <div class="controls">
+			<%= f.text_field :date %>
+	   	</div>
+	</div>
+	
+	<div class="accordion" id="friendlist">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<div class="control-group" id="friend-picker">
+				    <label class="control-label" for="inputPassword">
+				    	<a class="accordion-toggle" data-toggle="collapse" data-parent="#friendlist" href="#collapseOne">
+		        			<strong>W</strong>ho? <i class="icon-caret-down"></i>
+		      			</a>
+				    </label>
+				    <div class="controls">
+				    	<input type="text" placeholder="Add by mail">
+				   	</div>
+				</div>
+	    	</div>
+	    	<div id="collapseOne" class="accordion-body collapse">
+	     		<div class="accordion-inner">
+					<div class="scrollable-list">
+						<div class="control-group friend-control">
+						  <div class="controls">
+							<label class="checkbox">
+			        			<input type="checkbox"> <%=image_tag("profile2.png", class: "img-rounded profile-pics")%> Alice Morin
+			      			</label>
+						  </div>
+						</div>
+						<div class="control-group friend-control">
+						  <div class="controls">
+							<label class="checkbox">
+			        			<input type="checkbox"> <%=image_tag("profile.png", class: "img-rounded profile-pics")%> Boris Paillard
+			      			</label>
+						  </div>
+						</div>
+					</div>
+	     		</div> 
+	    	</div> 
+	  	</div> 
+	</div>
+
+	<div class="control-group">
+		<div class="controls">
+			<label class="checkbox">
+				<input type="checkbox"> Share with contacts?
+			</label>	  
+		</div>
+	</div>
+	<% if @event_to_update.nil? %>	
+		<div class="actions">
+		    <%= f.submit "Create event", class: 'btn btn-success'%>
+		</div>
+	<% else %>
+		<div class="actions">
+		    <%= f.submit "Update event", class: 'btn btn-warning'%>
+		</div>
+	<% end %>	
+	
+<% end %>
+

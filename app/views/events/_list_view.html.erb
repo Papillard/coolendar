@@ -1,0 +1,3 @@
+<% group_events(@events).each do |ts,events_in_ts| %>
+	<%= render partial: "time_section", locals: {ts: ts, events_in_ts: events_in_ts} %>	
+<% end %>

@@ -1,0 +1,4 @@
+<h1>First connection to coolendar <%= current_user.user_name %>!<%=image_tag(current_user.picture_url, class: "img-rounded profile-pics")%></h1>
+
+<%= link_to "log out", destroy_user_session_path, :method => :delete %>
+

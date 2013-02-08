@@ -1,0 +1,22 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+napoToday:
+  date: 2013-01-10 18:38:31
+  description: Un napo
+  location: Au napo
+  time_section: Today
+  flexible: true
+
+napoNextWeek:
+  date: 2013-01-10 18:38:31
+  description: Un napo semaine pro
+  location: Au napo
+  time_section: NextWeek
+  flexible: false
+  
+napoWeird:
+  date: 2013-01-10 18:38:31
+  description: Un napo semaine pro
+  location: Au napo
+  time_section: A weird date..
+  flexible: false

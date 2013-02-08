@@ -1,0 +1,311 @@
+// Place all the styles related to the Events controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.events{	
+	
+	#coolendar-container{
+		box-shadow: 0 0 20px grey;
+		-webkit-box-shadow: 0 0 20px grey;
+		-moz-box-shadow: 0 0 20px grey;	
+		margin-left: 370px;
+		min-height: 580px;
+		min-width: 900px;
+	}
+	
+	/*-------------------------------Upper Navtabs-----------------------------------*/
+	
+	.nav {
+		margin-bottom: 0px;
+		margin-left: 0px;
+	}
+	
+	.nav-tabs{
+		border-bottom-color: rgba(255, 35, 0, 0.0);
+	}
+	
+	.nav-tabs > a{
+		color: black;
+	}
+
+	.nav-tabs > a:hover{
+		color: grey;
+	}
+	
+	.nav-tabs > .active > a{
+		background-color: rgba(255, 35, 0, 0.7);
+		color: black;
+		border-style: none;
+	}
+
+	.nav-tabs > .active > a:hover{
+		background-color: rgba(255, 35, 0, 0.5);
+		color: black;
+		border-style: none;
+	}
+
+	.nav-tabs > li > a{
+		-webkit-border-radius: 0 0 0 0;
+		-moz-border-radius: 0 0 0 0;
+		border-radius: 0px 0px 0 0;
+	}
+
+	.nav-tabs > li > a > img {
+		width: 30px;
+		height: 30px;
+		vertical-align: middle;
+		border: 0;
+	}
+	
+	/*-------------------------------Time Section-----------------------------------*/
+		
+	.time-section{		
+		background: white;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	.ts-title{
+		color: firebrick;
+		text-shadow: 1px 1px 0 rgba(178, 34, 34, 0.3);
+	}
+	
+	.ts-title-block1{		
+	}
+	
+	.ts-title-block2{	
+		min-height: 40px;
+		margin-left: 10px;
+		padding-top: 8px;
+	}
+	
+	.badge-important {
+		background-color: firebrick;
+	}
+	
+	/*-------------------------------Day Section-----------------------------------*/
+	
+	.day-section{
+		background: white;
+	}
+	
+	.day-title{
+		border-bottom-style: solid;
+		border-bottom-width: 2px;
+		border-bottom-color: #F8F8F8;
+	}
+	
+	.day-title > .span2 > h4, h5, h6{
+		font-family: 'ProximaNova-Regular',Helvetica,Arial,sans-serif;
+	}
+	
+	.month{
+		text-align: right;
+	}
+	
+	.day{
+		border-right-color: #F8F8F8;
+	}
+		
+	.day-section > .span12{
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	/*-------------------------------Event Section-----------------------------------*/
+	.event-section{
+		margin-top: 10px;
+		margin-bottom: 10px;
+	}
+
+	.event-section > .event{
+		border-left-style: solid;
+		border-left-width: 1px;
+		border-left-color: #F8F8F8;
+		padding-left: 10px;
+		transition: background 0.5s, border-radius 0.5s;
+		-moz-transition: background 0.5s, -moz-border-radius 0.5s; /* Firefox 4 */
+		-webkit-transition: background 0.5s, -webkit-border-radius 0.5s; /* Safari and Chrome */
+	}
+	
+	.event-section > .event:hover{
+		background: #F8F8F8;
+		-webkit-border-radius: 4px 4px 4px 4px;
+		-moz-border-radius: 4px 4px 4px 4px;
+		border-radius: 4px 4px 4px 4px;
+	}	
+	
+	.event-section > .span1{
+		min-width: 40px;
+	}
+	
+	.event-section > .event > .row-fluid > .span11 > h4{
+		line-height: 0;
+	}
+		
+	.delete-btn, .edit-btn{
+		width: 20px;
+		height: 20px;
+		opacity: 0.2;
+		margin-top: 5px;
+		margin-right: 5px;
+		float: right;
+	}
+	.delete-btn:hover, .edit-btn:hover{
+		opacity: 0.5;
+	}
+
+	
+	/*-------------------------------Event Creation-----------------------------------*/
+	.form-horizontal .controls {
+		margin-left: 10px;
+	}
+
+	.form-horizontal .control-label {
+		width: 65px;
+		text-align: left;
+		padding-left: 10px;
+	}
+
+	.accordion-heading .accordion-toggle {
+		padding-left: 10px;
+	}
+	
+	#friendlist{
+		max-width: 300px;
+	}
+	
+	#friend-picker{
+		margin-bottom: 0px;
+	}
+	
+	#friend-picker > .controls{
+		margin-top: 8px;
+	}
+	
+	#friend-picker > .control-label{
+		padding-left: 0;
+		width: 75px;
+	}
+	
+	.friend-control{
+		margin-bottom: 0;
+	}
+	
+	.scrollable-list{
+		overflow: scroll;
+		height: 150px;
+	}
+	
+	textarea{
+		resize: none;
+	}
+	
+	/*-------------------------------Calendar view-----------------------------------*/
+	
+	#list-month-controller{
+		margin-top: 8px;
+		margin-left: 400px;
+	}
+	
+	.calendar {
+	  border-collapse: collapse;
+	  width: 100%;
+	  padding-left: 0px;
+	}
+	
+	.cal-week-section{
+		margin-bottom: 10px;
+	}
+	
+	.cal-week-title{
+		color: firebrick;
+		text-shadow: 1px 1px 0 rgba(178, 34, 34, 0.3);
+		margin-left: 10px;
+	}
+	
+	.cal-week-row{
+		margin-left: 10px;
+		min-width: 870px;
+		background-color: white;
+		border-right-style: solid;
+		border-right-width: 1px;
+		border-right-color: #CCC;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-bottom-color: #CCC;
+	}
+	
+	.cal-header-row{
+		margin-left: 10px;
+		min-width: 870px;
+	}
+	.cal-header-day{
+		min-width: 95px;
+		margin-left: 15px;		
+		text-align: center;
+	}
+	
+	.cal-day-section{
+		min-height: 150px;
+		min-width: 95px;
+		margin-left: 15px;
+		margin-bottom: 5px;
+	}
+	.cal-day-title{
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-bottom-color: #CCC;
+		text-align: center;
+	}
+	
+	.cal-day-cell{
+		background-color: #F8F8F8;
+		-webkit-border-radius: 4px 4px 4px 4px;
+		-moz-border-radius: 4px 4px 4px 4px;
+		border-radius: 4px 4px 4px 4px;
+		border-style: solid;
+		border-width: 1px;
+		border-color: #E8E8E8;
+		margin-bottom: 5px;
+		margin-top: 5px;
+		text-align: left;
+	}
+	
+	.cal-day-cell-title{
+		color: grey;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-bottom-color: #E8E8E8;
+		background-color: white;
+		text-align: left;
+	}
+	
+	.cal-profile-pics{
+		width: 40px;
+		height: 40px;
+		margin-bottom: 2px;
+		margin-top: 2px;
+	}
+	
+	.notmonth{
+		opacity: 0.3;
+	}
+	
+	.today .cal-day-title{
+		color: red;
+	}
+
+	#month-title {
+	  margin: 0;
+	  padding-bottom: 10px;
+	  text-align: center;
+	  font-size: 22px;
+	  a {
+	    text-decoration: none;
+	    padding: 0 10px;
+	    color: #999;
+	  }
+	}
+	
+}

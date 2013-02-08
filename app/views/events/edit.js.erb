@@ -1,0 +1,8 @@
+/*Update/show/delete notices*/
+$("#notices").html("<%=j render partial: 'notices' %>");
+$("#notices").show(300)
+<% flash.delete(:alert) %>
+
+$("#creation-form").html("<%= escape_javascript(render partial: "create_event")%>");
+$("#event_date").datepicker({'dateFormat':'yy-mm-dd'});
+

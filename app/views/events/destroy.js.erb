@@ -1,0 +1,16 @@
+$("#errors").hide(300);
+
+$("#notices").html("<%=j render partial: 'notices' %>");
+set_notice_fadeout();
+$("#notices").show(300);
+<% flash.delete(:alert) %>
+
+/*Clear the entire form*/
+$(":input:not(input[type=submit])").val("");
+
+$("#coolendar-inner").html("<%=j render partial: 'coolendar_inner'%>");
+
+prepare_dom();
+
+
+

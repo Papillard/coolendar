@@ -1,0 +1,20 @@
+<div class="row-fluid">	
+	<div class="span12 time-section">
+		<div class="row-fluid ts-title">	
+			<div class="span2  ts-title-block1">
+				<h4><%= ts %></h4>
+			</div>
+			<div class="span1 ts-title-block2">
+				<span class="badge badge-important">6</span>
+			</div>
+		</div>	
+		<% events_in_ts.each do |day,events_in_day| %>
+			<%= render partial: "day_section", locals: {day: day, events_in_day: events_in_day} %>
+		<% end %>
+	</div>
+</div>
+
+
+
+
+

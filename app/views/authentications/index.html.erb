@@ -1,0 +1,37 @@
+<h1>Listing authentications</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Provider</th>
+    <th>Uid</th>
+    <th>Token</th>
+    <th>User name</th>
+    <th>Picture url</th>
+    <th>Refresh token</th>
+    <th>Token expires time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @authentications.each do |authentication| %>
+  <tr>
+    <td><%= authentication.user_id %></td>
+    <td><%= authentication.provider %></td>
+    <td><%= authentication.uid %></td>
+    <td><%= authentication.token %></td>
+    <td><%= authentication.user_name %></td>
+    <td><%= authentication.picture_url %></td>
+    <td><%= authentication.refresh_token %></td>
+    <td><%= authentication.token_expires_time %></td>
+    <td><%= link_to 'Show', authentication %></td>
+    <td><%= link_to 'Edit', edit_authentication_path(authentication) %></td>
+    <td><%= link_to 'Destroy', authentication, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Authentication', new_authentication_path %>

@@ -1,0 +1,17 @@
+<% event = @updated_event || @event %>
+<% current_errors = [] %>
+<% current_errors = event.errors unless event.nil?%>
+
+<% if current_errors.any? %>
+    <div class="alert alert-block alert-error" data-dismiss="alert">
+      <a class="close">×</a>
+      <h4 class="alert-heading"><%= pluralize(current_errors.count, "error") %>..</h4>
+	  <h4>C'mon fix it johnny boy!'</h4>
+		<br>
+		<ul>
+      	<% current_errors.full_messages.each do |msg| %>
+    		<li><%= msg %></li>
+  		<% end %>
+		</ul>
+    </div>
+<% end %>

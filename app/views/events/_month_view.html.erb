@@ -1,0 +1,19 @@
+<h2 id="month-title">
+  <%= link_to "<", events_path(date: @date.prev_month), remote: true %>
+  <%= @date.strftime("%B %Y") %>
+  <%= link_to ">", events_path(date: @date.next_month), remote: true %>
+</h2>
+<%= calendar @date do |date| %>
+  <% if @events_by_date[date] %>
+      <% @events_by_date[date].each do |event| %>
+		<div class='span12 cal-day-cell'>
+			<div class='row-fluid cal-day-cell-title'>
+        		<%= event.description[0..9] %>...
+			</div>
+			<div class='row-fluid'>
+        		<%= custom_time(event.date)%> <%=image_tag("profile2.png", class: "img-rounded cal-profile-pics")%>
+			</div>
+		</div>
+      <% end %>
+  <% end %>
+<% end %>

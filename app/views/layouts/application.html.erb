@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Planner</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="<%= controller.controller_name %>">
+	
+	<div class="navbar navbar-inverse navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="brand" href="#"><i class="icon-calendar"></i> Coolendar</a>
+	      <ul class="nav">
+	        <li><a href="#whats-new">What's New</a></li>
+	        <li class="dropdown">
+	          <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
+	            Icons
+	            <i class="icon-caret-down"></i>
+	          </a>
+	          <ul class="dropdown-menu" role="menu">
+	            <li><a href="#icons-new">New Icons</a></li>
+	            <li class="divider"></li>
+	            <li class="nav-header">All Icons</li>
+	            <li><a href="#icons-web-app"><i class="icon-edit"></i> Web Application</a></li>
+	            <li><a href="#icons-text-editor"><i class="icon-save"></i> Text Editor</a></li>
+	            <li><a href="#icons-directional"><i class="icon-hand-right"></i> Directional</a></li>
+	            <li><a href="#icons-video-player"><i class="icon-play"></i> Video Player</a></li>
+	            <li><a href="#icons-social"><i class="icon-github"></i> Social</a></li>
+	            <li><a href="#icons-medical"><i class="icon-stethoscope"></i> Medical</a></li>
+	          </ul>
+	        </li>
+	      </ul>
+	      <ul class="nav pull-right">
+	        <li><a href="mailto:boris@gmail.com"><i class="icon-envelope"></i> Me</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>
+	
+	<div class='container-fluid' id=' app-container'>	
+				<%= yield %>
+	</div><!--/app_container-->
+			
+	<hr>
+		
+	<div id="footer">
+		<div class="container">
+			<p>&copy; Coolendar 2013</p>
+	        <p class="muted credit">developped by <a href="#">Papillard</a> and <a href="#">Ripepere</a>.</p>
+	    </div>
+	</div>
+
+</body>
+</html>

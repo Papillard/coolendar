@@ -1,0 +1,44 @@
+<div class="row-fluid day-section">
+	<div class="span12">
+		<div class="row-fluid day-title">
+			<div class="span3 day">
+				<h5><%= day.strftime("%^A %d") %><h5>
+			</div>
+			<div class="span2 offset7 month">
+				<h4><%= day.strftime("%b %y") %><h4>
+			</div>				
+		</div><!--day-title-->
+		<% for event in events_in_day %>
+			<div class='row-fluid event-section'>
+				<div class="span1 muted time"><h5><%= custom_time(event.date) %></h5></div>
+					<div class="span11 event">
+						<% if event == @current_event %>
+							<div id='current-event'>
+						<%else%>
+							<div>
+						<% end %>
+							<div class="row-fluid">
+								<div class="span11">
+									<h4><%= event.description%></h4>
+									<p>by <strong>Mathieu Ripouze</strong></p>
+									<%=image_tag("profile.png", class: "img-rounded profile-pics")%>
+									<%=image_tag("profile2.png", class: "img-rounded profile-pics")%>
+									<div class="btn-group" data-toggle="buttons-radio">
+						  				<button type="button" class="btn">Yes</button>
+						  				<button type="button" class="btn">Maybe</button>
+						  				<button type="button" class="btn">No</button>
+									</div>
+								</div>
+								<div class="span1">
+									<%= link_to image_tag("close.svg", class: "delete-btn"), event, method: :delete, data: { confirm: "you really want to delete: #{event.description[0..25]}...?"}, remote: true%> 
+									<%= link_to image_tag("edit.svg", class: "edit-btn"), edit_event_path(event), remote: true %> 
+								</div>
+							</div>
+						</div>	
+						</div>					
+				</div><!--event-section-->
+		<% end %>
+	</div><!--span12-->
+</div>
+
+

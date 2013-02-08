@@ -1,0 +1,48 @@
+<% if @updated_event.errors.any? -%>
+
+  /*Hide the notices div*/
+  $("#notices").hide(300);
+
+  /*Update the html of the div post_errors with the new one*/
+  $("#errors").html("<%=j render partial: 'errors' %>");
+
+  /*Show the div post_errors*/
+  $("#errors").show(300);
+
+  $("#event_date").datepicker({'dateFormat':'yy-mm-dd'})
+
+<% else -%>
+  /*Hide the div errors*/
+  $("#errors").hide(300);
+
+  /*Update the html of the div notices with the new one*/
+  $("#notices").html("<%=j render partial: 'notices' %>");
+
+  /* Set the notice fadeout*/
+  set_notice_fadeout();
+ 
+  /*Show the notices div*/
+  $("#notices").show(300)
+
+  /* Delete notice in fash hash*/
+  <% flash.delete(:notice) %>
+  
+  /*Reset the form for next event creation*/
+  $("#creation-form").html("<%= escape_javascript(render partial: "create_event")%>");
+
+  /*Replace the html of the div coolendar-inner with the updated new one*/
+  $("#coolendar-inner").html("<%=j render partial: 'coolendar_inner'%>");
+
+  /* Animate the events*/
+  prepare_dom();
+
+  /*Animate the event creation*/
+  $("#current-event").hide();
+  $('#current-event').slideDown(500);
+  /*$('#current-event').css({'background-color':'#dff0d8'}).animate({'background-color':'rgba(0, 0, 0, 0)'}, 3000);*/
+
+  $("#event_date").datepicker({'dateFormat':'yy-mm-dd'})
+
+<% end -%>
+
+

@@ -1,0 +1,33 @@
+<% if @event.errors.any? -%>
+  /*Hide notices*/
+  $("#notices").hide(300);
+  /*Update and show errors*/
+  $("#errors").html("<%=j render partial: 'errors' %>");
+  $("#errors").show(300);
+<% else -%>
+  /*Hide errors*/
+  $("#errors").hide(300);
+
+  /*Update/show/delete notices */
+  $("#notices").html("<%=j render partial: 'notices' %>");
+  set_notice_fadeout();
+  $("#notices").show(300)
+  <% flash.delete(:notice) %>
+  
+  /*Clear the entire form*/
+  $(":input:not(input[type=submit])").val("");
+
+  /*Replace the html of the div coolendar-inner with the updated new one*/
+  $("#coolendar-inner").html("<%=j render partial: 'coolendar_inner'%>");
+
+  /*Set general animations of the DOM*/
+  prepare_dom();
+
+  /*Animate event creation*/
+  $("#current-event").hide();
+  $('#current-event').slideDown(500);
+  /*$('#current-event').css({'background-color':'#dff0d8'}).animate({'background-color':'rgba(0, 0, 0, 0)'}, 3000);*/
+
+<% end -%>
+
+
