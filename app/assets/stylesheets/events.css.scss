@@ -8,9 +8,15 @@
 		box-shadow: 0 0 20px grey;
 		-webkit-box-shadow: 0 0 20px grey;
 		-moz-box-shadow: 0 0 20px grey;	
-		margin-left: 370px;
-		min-height: 580px;
 		min-width: 900px;
+		position: absolute;
+		left: 320px;
+	}
+	
+	#side-container{
+	    position:fixed;
+	    width:300px;
+		margin-left: 10px;
 	}
 	
 	/*-------------------------------Upper Navtabs-----------------------------------*/
@@ -216,17 +222,16 @@
 	
 	.cal-week-section{
 		margin-bottom: 10px;
+		padding-left: 10px;
+		padding-right: 10px;
 	}
 	
 	.cal-week-title{
 		color: firebrick;
 		text-shadow: 1px 1px 0 rgba(178, 34, 34, 0.3);
-		margin-left: 10px;
 	}
 	
 	.cal-week-row{
-		margin-left: 10px;
-		min-width: 870px;
 		background-color: white;
 		border-right-style: solid;
 		border-right-width: 1px;
@@ -237,20 +242,17 @@
 	}
 	
 	.cal-header-row{
-		margin-left: 10px;
-		min-width: 870px;
 	}
+	
 	.cal-header-day{
-		min-width: 95px;
-		margin-left: 15px;		
+		min-width: 12%;	
 		text-align: center;
 	}
 	
 	.cal-day-section{
 		min-height: 150px;
-		min-width: 95px;
-		margin-left: 15px;
-		margin-bottom: 5px;
+		min-width: 12%;	
+		
 	}
 	.cal-day-title{
 		border-bottom-style: solid;

@@ -13,12 +13,12 @@
 	  <div class="navbar-inner">
 	    <div class="container">
 	      <a class="brand" href="#"><i class="icon-calendar"></i> Coolendar</a>
-	      <ul class="nav">
-	        <li><a href="#whats-new">What's New</a></li>
+	      <ul class="nav pull-right">
 	        <li class="dropdown">
-	          <a href="#" role="button" class="dropdown-toggle" data-toggle="dropdown">
-	            Icons
-	            <i class="icon-caret-down"></i>
+	          <a href="#" role="button" class="dropdown-toggle nav-dropdown" data-toggle="dropdown">
+				<% if current_user %>
+	            <%= image_tag current_user.picture_url, class: 'img-rounded nav-pics' %>
+				<% end %>
 	          </a>
 	          <ul class="dropdown-menu" role="menu">
 	            <li><a href="#icons-new">New Icons</a></li>
@@ -33,24 +33,12 @@
 	          </ul>
 	        </li>
 	      </ul>
-	      <ul class="nav pull-right">
-	        <li><a href="mailto:boris@gmail.com"><i class="icon-envelope"></i> Me</a></li>
-	      </ul>
 	    </div>
 	  </div>
 	</div>
 	
-	<div class='container-fluid' id=' app-container'>	
-				<%= yield %>
-	</div><!--/app_container-->
-			
-	<hr>
-		
-	<div id="footer">
-		<div class="container">
-			<p>&copy; Coolendar 2013</p>
-	        <p class="muted credit">developped by <a href="#">Papillard</a> and <a href="#">Ripepere</a>.</p>
-	    </div>
+	<div class='container-fluid'>	
+		<%= yield %>
 	</div>
 
 </body>

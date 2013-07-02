@@ -4,7 +4,7 @@ class AuthenticationsController < ApplicationController
   # POST /authentications.json
   def create
     omniauth = request.env["omniauth.auth"]
-    
+
     # We look for a user having the call back provider_id
     case omniauth['provider']
       when 'facebook'

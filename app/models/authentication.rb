@@ -7,6 +7,7 @@ class Authentication < ActiveRecord::Base
   belongs_to :user
   
   private
+  
   def token_expired?
     if(self.token_expires_time < Time.now.to_i)
       return true

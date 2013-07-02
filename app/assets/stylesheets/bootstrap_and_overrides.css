@@ -1,0 +1,74 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings.png');
+@iconWhiteSpritePath: asset-path('twitter/bootstrap/glyphicons-halflings-white.png');
+
+@baseFontFamily: 'ProximaNova-Regular',Helvetica,Arial,sans-serif;
+@headingsFontFamily: 'MuseoSlab-500',Helvetica,Arial,sans-serif;
+
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not 
+//       have the proper paths. So for now we use the absolute path.
+ @fontAwesomeEotPath: '/assets/fontawesome-webfont.eot';
+ @fontAwesomeWoffPath: '/assets/fontawesome-webfont.woff';
+ @fontAwesomeTtfPath: '/assets/fontawesome-webfont.ttf';
+ @fontAwesomeSvgPath: '/assets/fontawesome-webfont.svg';
+
+// Font Awesome
+ @import "fontawesome";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/less.html for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+
+//------------------------------------General---------------------------------------
+body{
+	background-color: #F8F8F8;
+	padding-top: 60px;
+}
+
+a{
+	color: black;
+}
+
+a:hover {
+	color: firebrick;
+	text-decoration: none;
+}
+
+//------------------------------------Navbar---------------------------------------
+
+.navbar-inverse .brand, .navbar-inverse .nav > li > a, .navbar-inverse .brand:hover, .navbar-inverse .nav > li > a:hover {
+  	color: white;
+}
+
+.navbar .nav > li > a {
+	float: none;
+	padding: 12px 15px 10px;
+	color: @grayLight;
+	text-decoration: none;
+}
+
+.navbar .nav > li > a.dropdown-toggle {
+	float: none;
+	padding: 5px 0px 5px;
+	color: @grayLight;
+	text-decoration: none;
+}
+
+input, textarea {
+	width: 200px;
+}
+
+
+

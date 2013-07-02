@@ -11,16 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130206132630) do
+ActiveRecord::Schema.define(:version => 20130210120214) do
 
   create_table "authentications", :force => true do |t|
-    t.string   "user_id"
+    t.integer  "user_id"
     t.string   "provider"
     t.string   "token"
     t.string   "refresh_token"
     t.integer  "token_expires_time"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "email"
+    t.string   "name"
+    t.string   "picture_url"
+    t.boolean  "active",      :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "events", :force => true do |t|

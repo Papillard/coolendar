@@ -13,11 +13,6 @@
  *= require_tree .
  */
 
-#app-container{
-    margin: 0 auto;
-	padding-right: 0;
-	padding-left: 50px;
-}
 
 #logo{
 	font-family: 'ProximaNovaA-Regular';
@@ -26,11 +21,6 @@
 	margin-left: 20px;
 }
 
-#side-container{
-    position:fixed;
-    width:300px;
-	margin-left: 10px;
-}
 
 .down-arrow{
 	width: 15px;
@@ -41,6 +31,15 @@
 	width: 40px;
 	height: 40px;
 	margin-bottom: 10px;
+}
+
+.nav-pics{
+	width: 30px;
+	height: 30px;
+}
+
+#footer{
+	position: relative;	
 }
 
 

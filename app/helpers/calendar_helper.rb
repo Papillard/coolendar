@@ -5,12 +5,12 @@ module CalendarHelper
 
   class Calendar < Struct.new(:view, :date, :callback)
     START_DAY = :monday
-    HEADER = %w[mon tue wed thu fri sat sun ?]
+    HEADER = %w[mon tue wed thu fri sat sun]
 
     delegate :content_tag, to: :view
     
     def coolendar
-      content_tag :div, class: "container calendar" do
+      content_tag :div, class: "container-fluid calendar" do
           week_rows
       end
     end
@@ -28,7 +28,7 @@ module CalendarHelper
     def week_rows
       weeks.map do |week|
         content_tag :div, class: 'row-fluid' do
-          content_tag :div, class: 'span10 cal-week-section' do 
+          content_tag :div, class: 'span12 cal-week-section' do 
              week_title(week) + header + week_days(week) 
           end
         end
@@ -44,7 +44,7 @@ module CalendarHelper
         content_tag(:h4,"This Week", class: 'cal-week-title')
       elsif week.include?(Date.today.next_week)
         content_tag(:h4,"Next week", class: 'cal-week-title')
-      elsif week.include?(Date.today.next_week.next_week)
+      elsif week.include?(Date.today.next_week.next_week) && (week[0].month==Date.today.month)
         content_tag(:h4,"End of month", class: 'cal-week-title')
       else
         content_tag(:h4,"") 

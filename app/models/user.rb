@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true  
 
   has_many :authentications , :dependent => :destroy
+  has_many :contacts, :dependent => :destroy
 
   #------------------------------------------Authentication--------------------------------------------------
   #---------------------------General----------------------------
@@ -26,19 +27,22 @@ class User < ActiveRecord::Base
   end
   
   def password_required?
-    (authentications.empty? || password.blank?) && super
+    (self.authentications.empty? || self.password.blank?) && super
   end
   
   #---------------------------Facebook---------------------------
   def apply_facebook(omniauth)
     if (extra = omniauth['extra']['raw_info'] rescue false)
-      self.email = omniauth['extra']['raw_info']['email'] if self.email.blank? # no email over-ride if user already authenticated through google
-      self.facebook_id = omniauth['uid'] 
-      self.user_name = omniauth['extra']['raw_info']['username'] if self.user_name.blank? 
-      self.picture_url = 'https://graph.facebook.com/'+ omniauth['uid'] +'/picture'
-    end    
+      self.update_attribute(:facebook_id, omniauth['uid']) 
+      self.update_attribute(:user_name, omniauth['extra']['raw_info']['username']) if self.user_name.blank? 
+      self.update_attribute(:picture_url, 'https://graph.facebook.com/'+ omniauth['uid'] +'/picture')
+      
+      #Will be set from google
+      #self.email = omniauth['extra']['raw_info']['email'] if self.email.blank? # no email over-ride if user already authenticated through google
+    end 
+      
     
-    self.authentications.build(
+    self.authentications.create(
       :provider => omniauth['provider'],
       :token => (omniauth['credentials']['token'] rescue nil),
       :refresh_token => "",
@@ -48,12 +52,16 @@ class User < ActiveRecord::Base
 
   #---------------------------Google-----------------------------  
   def apply_google(omniauth)
+    
     if (extra = omniauth['info'] rescue false)
       self.email = omniauth['info']['email'] if self.email.blank?
-      self.google_id = omniauth['uid']
       self.user_name = omniauth['info']['name'] if self.user_name.blank?
-      self.picture_url = omniauth['info']['image'] if self.picture_url.blank?
+      self.google_id = omniauth['uid']
+      
+      #Will be set from facebook
+      #self.picture_url = omniauth['info']['image'] if self.picture_url.blank?
     end
+    
 
     self.authentications.build(
       :provider => omniauth['provider'],
@@ -65,7 +73,7 @@ class User < ActiveRecord::Base
 
   #------------------------------------------Get Contacts--------------------------------------------------
 
-   def get_google_contacts 
+   def get_google_contacts()
 
      google_auth = self.authentications.find_by_provider("google_oauth2") 
 
@@ -80,14 +88,17 @@ class User < ActiveRecord::Base
        http.verify_mode = OpenSSL::SSL::VERIFY_NONE
        request = Net::HTTP::Get.new(uri.request_uri)
        result = http.request(request).body
-       #contacts = JSON.load(result)
        contacts = ActiveSupport::JSON.decode(result)
-
+       
        contacts['feed']['entry'].each_with_index do |contact,index|
          if !contact['title']['$t'].empty?
-           print contact['title']['$t']
-           print ":"
-           puts contact['gd$email'][0]['address']
+                      
+           if contact['link'][1]['type'] == 'application/atom+xml'
+             pics = "default_pic.svg"
+           else 
+             pics = contact['link'][1]['href']+"?access_token=#{google_auth.token}"
+           end  
+           self.contacts.create(name: contact['title']['$t'], email: contact['gd$email'][0]['address'], picture_url: pics, active: true)
          end
        end         
      end

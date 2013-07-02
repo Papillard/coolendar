@@ -1,0 +1,30 @@
+
+<div class='row-fluid'>
+	<%= link_to "Choose these friends", '/' , class: 'btn btn-warning' %>
+</div>
+<hr>
+
+<% @contacts.each do |contact| %>
+	<%= form_for contact, remote: true do |f| %>
+		<% if contact.active %>	
+			<div class='row-fluid active-contact'>
+		<% else %>
+			<div class='row-fluid inactive-contact'>
+		<% end %>
+				<div class="span1"><%= image_tag(contact.picture_url, class: "img-rounded profile-pics")%></div>
+				<div class="span2"><%= contact.email %></div>
+				<div class="span2">
+					<div class="actions">
+						<% if contact.active %>	
+				    		<%= f.submit "Remove", class: 'btn btn-primary contact-pick', data: {toggle: 'button'}%>
+						<% else %>
+							<%= f.submit "Restore", class: 'btn btn-primary contact-pick active', data: {toggle: 'button'}%>
+						<% end %>
+					</div>
+				</div>
+			</div>
+	<% end %>
+<% end %>
+
+
+

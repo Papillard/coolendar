@@ -49,6 +49,19 @@ function prepare_dom()
 		$('#list-view').slideUp(500);
 		$('#month-view').slideDown(500);
 	});
+	
+	
+	$(".contact-pick").click(function(){
+		if($(this).hasClass('active')){
+			$(this).parent().parent().parent().fadeTo('slow', 1);
+			$(this).attr('value','Remove');
+		}
+		else{
+			$(this).parent().parent().parent().fadeTo('slow', 0.3);
+			$(this).attr('value','Restore');
+		}
+	});
+	
 };
 
 $(document).ready(function()

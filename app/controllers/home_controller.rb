@@ -2,14 +2,21 @@ class HomeController < ApplicationController
   before_filter :authenticate_user!
   
   def login  
-    if current_user.google_id.blank?
-      render action: 'google_connect'
+    
+    if current_user.contacts.empty?
+      redirect_to contacts_path
+      
+    elsif current_user.facebook_id.blank?
+      # If current_user has not linked facebook
+      render action: 'facebook_connect' 
+    
     else
-      google_auth.refresh_google_token if google_auth.token_expired?
+      redirect_to events_path
     end
+    
   end
   
-  def google_connect
+  def facebook_connect
   end
   
 end

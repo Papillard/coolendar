@@ -13,4 +13,5 @@ class RegistrationsController < Devise::RegistrationsController
       @user.valid?
     end
   end
+  
 end

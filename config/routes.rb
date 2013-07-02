@@ -1,12 +1,14 @@
 Planner::Application.routes.draw do
   
+  resources :contacts
+
   resources :authentications
   match '/auth/:provider/callback' => 'authentications#create'
   # Over-ride devise registration controller
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
                      controllers: {registrations: "registrations"}
   
-  root :to =>'home#login'
+  root :to =>'home#login', as: 'home_url'
   
   resources :events
   
